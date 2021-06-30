@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('scm') {
             steps {
-                git 'https://github.com/wakaleo/game-of-life.git'        
+                git 'https://github.com/Bharathandmia/spring-petclinic.git'        
             }
         }
         stage('build') {
@@ -11,11 +11,6 @@ pipeline {
                 sh script: 'mvn clean package'
             }
         }
-        stage('post build') {
-            steps {
-                junit 'gameoflife-web/target/surefire-reports/*.xml'
-                archiveArtifacts 'gameoflife-web/target/*.war'
-            }
-        }
+        
     }
 }
